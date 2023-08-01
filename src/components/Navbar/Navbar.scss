@@ -1,0 +1,173 @@
+@import "../../App.scss";
+
+.navbar {
+    padding: 16px 0 16px 0;
+    box-shadow: 0 3px 9px 3px rgba(0, 0, 0, 0.1);
+    background-color: $clr-white;
+    &-brand {
+        letter-spacing: 2px;
+        font-family: $fnt-large;
+        @media screen and (max-width: 992px) {
+            font-size: 20px;
+        }
+
+        @media screen and (max-width: 576px) {
+            font-size: 16px;
+        }
+    }
+
+    &-toggler {
+        .nav-links {
+            .li {
+                margin: 0 10px;
+            }
+            .nav-link {
+                font-size: 15px;
+                font-weight: 400;
+                margin: 0 10px;
+                &:hover {
+                    color: $clr-pink;
+                }
+            }
+        }
+
+        .navbar-hide-btn {
+            display: none;
+        }
+    }
+
+    &-search {
+        align-items: stretch;
+        input {
+            width: 100%;
+            border: 0.5px solid rgba(0, 0, 0, 0.05);
+            height: 44px;
+            padding: 4px 16px;
+            border-radius: 3px 0 0 3px;
+        }
+        .navbar-search-btn {
+            width: 60px;
+            height: 44px;
+            // transition: $transition;
+            &:hover {
+                background-color: $clr-pink;
+                color: $clr-white;
+            }
+            
+        }
+    }
+
+    &-btns {
+        .add-to-card-btn {
+            margin-right: 28px;
+            color: $clr-black;
+            .btn-ico{
+                margin-right: 1px;
+                font-size: 17px;
+            }
+
+            .cart-count {
+                position: relative;
+                .cart-count-value {
+                    font-size: 12px;
+                    font-weight: 500;
+                    position: absolute;
+                    bottom: 8px;
+                    display: inline-flex;
+                    justify-content: center;
+                    align-items: center;
+                    background-color: $clr-pink;
+                    width: 18px;
+                    height: 18px;
+                    border-radius: 3px;
+                    color: $clr-white;
+                }
+            }
+            
+        }
+    }
+
+    &-show-btn {
+        transition: $transition;
+        display: none;
+
+        &:hover {
+            color: $clr-pink;
+        }
+    }
+
+    @media screen and (max-width: 1200px) {
+        .nav-links {
+            .nav-link {
+                font-size: 16px !important;
+            }
+        }
+    }
+
+    @media screen and (max-width: 992px) {
+        .nav-links {
+            position: fixed;
+            top: 96px;
+            right: 0;
+            height: 0;
+            overflow: hidden;
+            transition: height 0.3s ease;
+            width: 100%;
+            background-color: $clr-white;            
+            flex-direction: column;
+            align-items: center;
+            // padding-top: 30px;            
+            // padding-left: 16px;
+            // transform: translateY(-140%);
+            z-index: 999;
+            // display: none;
+            li {
+                padding: 15px 0!important;
+                width: 80%;
+                text-align: center;
+                border-bottom:  0.8px solid rgba(0, 0, 0, 0.08);
+            }
+        }
+        .nav-links li:last-child {
+            border: 0;
+        }
+        .show-nav-links {
+            .navbar-hide-btn {
+                display: block;
+            }
+            // transform: translateX(0%);
+            // transition: $transition;
+            // display: flex;
+            box-shadow: 0 6px 9px -1px rgba(0, 0, 0, 0.1);
+            height: 450px;
+        }
+
+        .navbar-show-btn {
+            display: block !important;
+        }
+
+        .navbar-hide-btn {
+            width: 25px;
+            height: 25px;
+            display: none;
+            position: absolute;
+            top: 0px;
+            right: 16px;
+            &:hover {
+                color: $clr-white;
+                background-color: $clr-pink;
+                border-radius: 50%;
+            }
+        }
+    }
+
+    @media screen and (max-width: 768px) {
+       
+    }
+
+    @media screen and (max-width: 576px) {
+        .nav-links {
+            top: 83px;
+        }
+    }
+}
