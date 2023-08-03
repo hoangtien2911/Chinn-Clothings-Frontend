@@ -1,0 +1,13 @@
+@import "../../App.scss";
+.hero-slider{
+    &-item{
+        height: 100vh;
+        img{
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            object-position: 50% calc(0% + 60px); /* Align the image to top - 30px */
+        }
+        
+    }
+}

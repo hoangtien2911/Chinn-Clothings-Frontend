@@ -28,9 +28,8 @@ const Navbar = () => {
             <div className="flex flex-center">
               <div className="navbar-toggler ">
                 <ul
-                  className={`nav-links flex ${
-                    isSidebarOpen ? "show-nav-links" : ""
-                  }`}
+                  className={`nav-links flex ${isSidebarOpen ? "show-nav-links" : ""
+                    }`}
                 >
                   <button
                     className="navbar-hide-btn"
@@ -39,13 +38,38 @@ const Navbar = () => {
                     <i className="fas fa-times"></i>
                   </button>
 
-                  {categories.map((category) => (
+                  {/* {categories.map((category) => (
                     <li key={category.id}>
                       <Link to="/" className="nav-link">
                         {category.name.toUpperCase()}
                       </Link>
                     </li>
-                  ))}
+                  ))} */}
+
+                  <li>
+                    <a href="#home" className="nav-link">
+                      {'home'.toUpperCase()}
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#collection" className="nav-link">
+                      {'collection'.toUpperCase()}
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="#collection" className="nav-link">
+                      {'specials'.toUpperCase()}
+
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="#collection" className="nav-link">
+                      {'about us'.toUpperCase()}
+
+                    </a>
+                  </li>
                   <li>
                     <form action="" className="navbar-search flex">
                       <input type="text" placeholder="Search here ..." />

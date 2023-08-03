@@ -1,0 +1,26 @@
+@import "../../App.scss";
+.title {
+    margin: 40px 0;
+    @media screen and (max-width: 992px) {
+        margin: 15px 0;
+    }
+    & h2 {
+        padding-left: 10px;
+        margin-left: 45%;
+        @media screen and (max-width: 576px) {
+            margin-left: 30%;
+        }    
+    }
+
+    & h2::before {
+        position: absolute;
+        content: "";
+        width: 4px;
+        height: 50px;
+        background-color: $clr-pink;
+        left: calc(50% - 5.5%);
+        @media screen and (max-width: 576px) {
+            left: calc(50% - 22%);
+        }
+    }
+}
