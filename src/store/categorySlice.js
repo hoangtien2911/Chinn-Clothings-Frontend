@@ -1,6 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import {BASE_URL} from "../utils/apiUrl";
 import {STATUS} from "../utils/status";
+import { apiClient } from "../api/API";
 
 const categorySlice = createSlice({
     name: 'category',
@@ -38,12 +39,14 @@ const categorySlice = createSlice({
 export const {setCategories, setStatus, setCategoriesProductAll, setCategoriesStatusAll, setCategoriesProductSingle, setCategoriesStatusSingle} = categorySlice.actions;
 export default categorySlice.reducer;
 
-export const fetchCategories = () => {
-    return async function fetchCategoryThunk(dispatch) {
+export const retrieveCategories = () => {
+    return async function retrieveCategoryThunk(dispatch) {
         dispatch(setStatus(STATUS.LOADING));
         try {
-            const response = await fetch(`${BASE_URL}categories`)
-            const data = await response.json();
+            const response = await apiClient.get('/categories')
+            console.log("0000000000000000000000000000000000000000000000000000")
+            console.log(response);
+            const data = response.data;
             dispatch(setCategories(data.slice(0, 5)));
             dispatch(setStatus(STATUS.IDLE));
         } catch(error) {

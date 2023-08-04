@@ -13,7 +13,7 @@ const Footer = () => {
           </p>
         </div>
 
-        <div className="footer-section m-3">
+        <div className="footer-section m-3 footer-link">
           <h5 className='fw-4 fs-19'>Links</h5>
           <ul className="footer-links">
             <li>
@@ -61,7 +61,7 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="footer-section m-3">
+        <div className="footer-section m-3 footer-follows">
           <h5 className='fw-4 fs-19'>Follow Us</h5>
           <div className="footer-follow">
             <ul className="list-unstyled flex">
