@@ -8,7 +8,7 @@ const categorySlice = createSlice({
     initialState: {
         data: [],
         status: STATUS.IDLE,
-        catProductAll: [],
+        catProductAll: {},
         catProductAllStatus: STATUS.IDLE,
         catProductSingle: [],
         catProductSingleStatus: STATUS.IDLE
@@ -22,7 +22,7 @@ const categorySlice = createSlice({
             state.status = action.payload;
         },
         setCategoriesProductAll(state, action) {
-            state.catProductAll.push(action.payload);
+            state.catProductAll = action.payload;
         },
         setCategoriesStatusAll(state, action) {
             state.catProductAllStatus = action.payload;
@@ -44,10 +44,10 @@ export const retrieveCategories = () => {
         dispatch(setStatus(STATUS.LOADING));
         try {
             const response = await apiClient.get('/categories')
-            console.log("0000000000000000000000000000000000000000000000000000")
+            console.log("--------------------retrieveCategories----------------------")
             console.log(response);
             const data = response.data;
-            dispatch(setCategories(data.slice(0, 5)));
+            dispatch(setCategories(data));
             dispatch(setStatus(STATUS.IDLE));
         } catch(error) {
             dispatch(setStatus(STATUS.ERROR));
@@ -55,19 +55,23 @@ export const retrieveCategories = () => {
     }
 }
 
-export const fetchProductByCategory = (categoryID, dataType) => {
-    return async function fetchCategoryProductThunk(dispatch) {
+export const retrieveProductByCategory = (categoryID, pageNumber, dataType) => {
+    return async function retrieveCategoryProductThunk(dispatch) {
         if (dataType === 'all') dispatch(setCategoriesStatusAll(STATUS.LOADING));
         if (dataType === 'single') dispatch(setCategoriesProductSingle(STATUS.LOADING));
         try {
-            const response = await fetch(`${BASE_URL}categories/${categoryID}/products`);
-            const data = await response.json();
+            const response = await apiClient.get(`/products/categories/${categoryID}/pages/${pageNumber}`);
+            console.log("--------------------retrieveProductByCategory----------------------")
+            console.log(response);
+            const data = response.data;
+            console.log("--------------------retrieveProductByCategory DAAAA----------------------")
+            console.log(data);
             if (dataType === 'all') {
-                dispatch(setCategoriesProductAll(data.slice(0, 10)));
+                dispatch(setCategoriesProductAll(data));
                 dispatch(setCategoriesStatusAll(STATUS.IDLE));
             }
-            if (dataType === 'all') {
-                dispatch(setCategoriesProductSingle(data.slice(0, 20)));
+            if (dataType === 'single') {
+                dispatch(setCategoriesProductSingle(data));
                 dispatch(setCategoriesStatusSingle(STATUS.IDLE));
             }
         } catch(error) {
