@@ -4,3 +4,7 @@ export const formatPrice = (price) => {
         currency: "VND"
     }).format(price);
 }
+
+export const scrollToTop = () => {
+    window.scrollTo(0, 0); // Scroll to the top of the page
+  };

@@ -4,7 +4,8 @@ import { useDispatch } from 'react-redux';
 import { STATUS } from '../../utils/status';
 import Error from '../Error/Error';
 import Loader from '../Loader/Loader';
-import { formatPrice } from '../../utils/helpers'
+import { formatPrice, scrollToTop } from '../../utils/helpers'
+import { Link } from 'react-router-dom';
 
 const SingleCategory = ({ products, status }) => {
   // if(status === STATUS.ERROR) return (<Error />);
@@ -30,9 +31,12 @@ const SingleCategory = ({ products, status }) => {
               </div>
               <p className="text-capitalize mt-1 mb-1">{product.name}</p>
               <span className="fw-6" style={{ display: 'block' }}>{formatPrice(product.price)}</span>
-              <button type="button" className='btn btn-primary mt-2'>
-                <span className='btn-text'>Add To Cart</span>
-              </button>
+              <Link to={`/product/${product.id}`}  onClick={scrollToTop} >
+                <button type="button" className='btn btn-primary mt-2'>
+                  <span className='btn-text'>Shop now</span>
+                </button>
+              </Link>
+
             </div>
           </div>
         ))

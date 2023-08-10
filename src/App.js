@@ -2,7 +2,7 @@ import logo from "./logo.svg";
 import "./App.scss";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 //pages
-import { Home, Category, Cart } from "./pages/index";
+import { Home, Category, Cart, ProductDetail } from "./pages/index";
 
 //components
 import Navbar from "./components/Navbar/Navbar";
@@ -18,7 +18,7 @@ function App() {
           <Navbar />
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/category/:id" element={<Category />} />
+            <Route path="/product/:productId" element={<ProductDetail />} />
             <Route path="/cart" element={<Cart />} />
           </Routes>
           <Footer />

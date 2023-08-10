@@ -25,8 +25,7 @@ const HomePage = () => {
     dispatch(retrieveCategories());
     dispatch(retrieveProductByCategory(categoryId, pageNumber, 'all'));
   }, [categoryId, pageNumber]);
-  console.log("0-----------------------");
-  console.log(productsByCategory);
+  // the categoryId, pageNumber will only be updated and the API call will only be triggered if the selected categoryId, pageNumber is different from the current one
   return (
     <div className='home-page'>
       <Slider />
@@ -35,7 +34,7 @@ const HomePage = () => {
       <section>
         <SingleCategory products={productsByCategory.lists} status={catProductAllStatus} />
       </section>
-      <Pagination pageNumber={pageNumber} totalPages={productsByCategory.pageNumber} onPageChange={setPageNumber} />
+      <Pagination pageNumber={pageNumber} totalPages={productsByCategory.totalPageNumber} onPageChange={setPageNumber} />
     </div>
   )
 }

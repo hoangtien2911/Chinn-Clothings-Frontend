@@ -1,0 +1,93 @@
+@import "../../App.scss";
+
+.product-detail {
+    display: flex;
+    flex-wrap: wrap;
+    padding-top: 130px;
+    margin-bottom: 30px;
+}
+
+.product-detail select{
+    display: block;
+    padding: 5px 1px;
+    border: 1px solid !important;
+}
+
+.product-detail input {
+    width: 57px;
+    height: 35px;
+    padding-left: 10px;
+    font-size: 16px;
+    margin-right: 10px;
+    border: 1px solid !important;
+}
+
+.product-img {
+    flex: 1; /* Take up 50% of the available space */
+    padding-left: 5%;
+    margin: 0;
+}
+
+.product-img img {
+    max-width: 100%; /* Resize width to 80% of container */
+    max-height: 70vh; /* Resize height to 70% of viewport height */
+    object-fit: contain; /* Maintain aspect ratio while fitting */
+}
+
+.product-info {
+    flex: 2; /* Take up 50% of the available space */
+    padding-right: 5%;
+    box-sizing: border-box; /* Include padding in width calculation */
+}
+
+.small-img-col {
+    flex-basis: 20%;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 1200px) {
+    .product-img {
+        padding-left: 2%;
+        padding-right: 2%;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .product-img {
+        padding-left: 2%;
+        padding-right: 2%;
+    }
+    
+    .small-img-col {
+        flex-basis: 24%;
+        // padding-right: 10px;
+        margin: 0 3px !important;
+    }
+    
+}
+
+@media screen and (max-width: 768px) {
+    .product-detail {
+        flex-direction: column; /* Stack elements vertically */
+    }
+
+    .product-img,
+    .product-info {
+        flex: none; /* Reset flex values */
+        width: 100%; /* Take up full width */
+        padding: 0 10px; /* Add some padding for spacing */
+    }
+
+    .product-info {
+        margin-top: 20px;
+    }
+
+    .product-img img {
+        max-height: 50vh; /* Adjust height for smaller screens */
+    }
+
+    .small-img-col {
+        flex-basis: 15%;
+        cursor: pointer;
+    }
+}

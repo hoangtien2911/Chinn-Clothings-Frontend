@@ -1,5 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-import {BASE_URL} from "../utils/apiUrl";
 import {STATUS} from "../utils/status";
 import { apiClient } from "../api/API";
 
@@ -44,8 +43,6 @@ export const retrieveCategories = () => {
         dispatch(setStatus(STATUS.LOADING));
         try {
             const response = await apiClient.get('/categories')
-            console.log("--------------------retrieveCategories----------------------")
-            console.log(response);
             const data = response.data;
             dispatch(setCategories(data));
             dispatch(setStatus(STATUS.IDLE));
@@ -61,11 +58,7 @@ export const retrieveProductByCategory = (categoryID, pageNumber, dataType) => {
         if (dataType === 'single') dispatch(setCategoriesProductSingle(STATUS.LOADING));
         try {
             const response = await apiClient.get(`/products/categories/${categoryID}/pages/${pageNumber}`);
-            console.log("--------------------retrieveProductByCategory----------------------")
-            console.log(response);
             const data = response.data;
-            console.log("--------------------retrieveProductByCategory DAAAA----------------------")
-            console.log(data);
             if (dataType === 'all') {
                 dispatch(setCategoriesProductAll(data));
                 dispatch(setCategoriesStatusAll(STATUS.IDLE));
