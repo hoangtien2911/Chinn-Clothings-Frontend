@@ -1,8 +1,5 @@
 @import "../../App.scss";
 .loader{
-    margin-bottom: 70%;
-    margin-top: 10%;
-    img{
-        width: 60px;
-    }
+    padding-top: 120px;
+    padding-bottom: calc(100vh - 120px);
 }
